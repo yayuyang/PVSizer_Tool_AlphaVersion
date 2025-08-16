@@ -313,24 +313,28 @@ This work was supported by the **U.S. Department of Energy (DOE)** under the pro
 
 ## 8. Author information
 
-**Yayu (Andy) Yang**
-Postdoctoral Researcher/Research Specialist  
-Department of Electrical Engineering and Computer Science  
-Center for Ultra-Wide-Area Resilient Energy Transmission Network(CURENT)
-University of Tennessee, Knoxville  
+**Yayu (Andy) Yang**<br>
+Postdoctoral Researcher/Research Specialist<br>
+Department of Electrical Engineering and Computer Science<br>
+Center for Ultra-Wide-Area Resilient Energy Transmission Network(CURENT)<br>
+University of Tennessee, Knoxville<br>
 📎 LinkedIn: [Yayu(Andy) Yang](https://www.linkedin.com/in/yayu-andy-yang-279991117/)📚 Google Scholar: [Profile](https://scholar.google.com/citations?user=ZJegz88AAAAJ)✉️ Email: yyang117@utk.edu
-**Samuel Okhuegbe**
-PhD Student, Energy Science and Engineering
-Bredesen Center for Interdisciplinary Research and Graduate Education
-Center for Ultra-Wide-Area Resilient Energy Transmission Network (CURENT)
-University of Tennessee, Knoxville  
-**Zhang Jian** 
-Research Associate
-Department of Electrical Engineering and Computer Science  
-University of Tennessee, Knoxville   
+
+**Samuel Okhuegbe**<br>
+PhD Student, Energy Science and Engineering<br>
+Bredesen Center for Interdisciplinary Research and Graduate Education<br>
+Center for Ultra-Wide-Area Resilient Energy Transmission Network (CURENT)<br>
+University of Tennessee, Knoxville
+
+**Zhang Jian**<br> 
+Research Associate<br>
+Department of Electrical Engineering and Computer Science  <br>
+University of Tennessee, Knoxville
+
 **Yilu Liu** 
-IEEE Life Fellow, Governor’s Chair
-University of Tennessee, Knoxville 
+IEEE Life Fellow, Governor’s Chair<br>
+University of Tennessee, Knoxville<br>
 Oak Ridge National Laboratory, USA  
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
