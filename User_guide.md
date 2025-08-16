@@ -8,8 +8,6 @@ Yayu(Andy) Yang, Samuel Okhuegbe, Zhang Jian, Yilu Liu
 - Oak Ridge National Laboratory, USA
 
 ## Table of Contents
-- [IBRNet/GridSize (Alpha Version) Tool User Manual](#ibrnetgridsize-alpha-version-tool-user-manual)
-  - [Table of Contents](#table-of-contents)
   - [1. Introduction](#1-introduction)
     - [1.1 Mode 1: single\_run](#11-mode-1-single_run)
     - [1.2 Mode 2: traversal](#12-mode-2-traversal)
@@ -334,4 +332,5 @@ University of Tennessee, Knoxville
 IEEE Life Fellow, Governor’s Chair
 University of Tennessee, Knoxville 
 Oak Ridge National Laboratory, USA  
+
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
