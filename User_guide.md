@@ -331,10 +331,11 @@ Research Associate<br>
 Department of Electrical Engineering and Computer Science  <br>
 University of Tennessee, Knoxville
 
-**Yilu Liu** 
+**Yilu Liu**<br>
 IEEE Life Fellow, Governor’s Chair<br>
 University of Tennessee, Knoxville<br>
 Oak Ridge National Laboratory, USA  
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
 
