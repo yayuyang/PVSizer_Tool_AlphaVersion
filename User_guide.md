@@ -36,7 +36,7 @@ The tool offers three core analysis modes:
 
 ### 1.1 Mode 1: single_run
 **Purpose:**  
-Performs a detailed 24-hour simulation to evaluate the impact of IBRs on distribution networks for a single, user-defined PV and BBESS configuration.
+Performs a detailed 24-hour simulation to evaluate the impact of IBRs on distribution networks for a single, user-defined PV and BESS configuration.
 
 **Outputs:**  
 - Comprehensive charts and data for analysis.  
@@ -369,6 +369,7 @@ University of Tennessee, Knoxville<br>
 Oak Ridge National Laboratory, USA  
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
 
 
 
