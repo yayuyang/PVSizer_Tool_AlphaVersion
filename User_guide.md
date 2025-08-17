@@ -35,20 +35,50 @@ In this tool, OpenDSS serves as the powerful simulation engine responsible for m
 The tool offers three core analysis modes:
 
 ### 1.1 Mode 1: single_run
-- Performs a detailed 24-hour simulation to evaluate the impact of IBRs on distribution networks for a single, user-defined PV and BESS configuration.
-- This mode provides comprehensive charts and data for analysis.
-- It will also automatically export all data to a CSV file.
+**Purpose:**  
+Performs a detailed 24-hour simulation to evaluate the impact of IBRs on distribution networks for a single, user-defined PV and BBESS configuration.
+
+**Outputs:**  
+- Comprehensive charts and data for analysis.  
+- Automatic export of all simulation data to a CSV file.
 
 ### 1.2 Mode 2: traversal
-- A global traversal analysis that systematically tests combinations of PV and energy storage capacities to generate a "feasibility region map".
-- This visually identifies capacity configurations that satisfy grid constraints.
-- For all cases that do not meet grid constraints, the tool provides detailed failure reasons, such as "Convergence Failure", "Voltage Violation", or "Loading Violation".
-- It will also automatically export all data to a CSV file.
-- Finally, it identifies and reports the maximum PV size and the minimum corresponding battery size from the successful configurations.
+**Purpose:**  
+A global traversal analysis that systematically tests combinations of PV and BESS capacities to generate a "feasibility region map", visually identifying configurations that satisfy grid constraints.
+
+**Outputs:**  
+- Visualization of feasible capacity configurations.  
+- Detailed failure reasons for configurations that do **not** meet constraints, including:  
+  - Convergence Failure  
+  - Voltage Violation  
+  - Loading Violation  
+  - Battery Oversize  
+- Automatic export of all simulation data to a CSV file.  
+- Identification of the maximum PV size and the minimum corresponding BESS size from successful configurations.
+
+**Optimization Objective:**  
+Map the entire feasible region of operation. From successful configurations, identify the point that **maximizes PV rated active power** and, for that maximum PV level, determine the **minimum required BESS rated active power**.
+
+**Constraints:**  
+For a given combination of PV and BESS capacity to be considered successful, the 24-hour simulation must satisfy the following grid constraints:
+  - **Power Flow Convergence:** The simulation must successfully converge at all time steps.  
+  - **Voltage Limits:** All bus node voltages must remain within the predefined limits (e.g., 0.95 p.u. to 1.05 p.u.) for the entire duration.  
+  - **Thermal Limits:** The loading on all power delivery elements (lines and transformers) must not exceed their thermal rating (e.g., 100%).
+  - **Battery Capacity Constraints:**  1) Rated active power of the battery cannot exceed the rated active power of the PV；2) If the battery remains above its minimum SOC after discharging overnight, its capacity is considered unrealistic.
+
 
 ### 1.3 Mode 3: optimization
-- Utilizes a hill-climbing algorithm to efficiently search for the optimal configuration that maximizes PV capacity and minimizes energy storage capacity while satisfying grid constraints like voltage limits and thermal overloads.
-- After identifying this optimal PV-BESS combination, the tool outputs a detailed 24-hour time-series simulation for that specific configuration.
+**Purpose:**  
+Uses a **hill-climbing algorithm** to efficiently search for the optimal configuration that **maximizes PV size** while **minimizing BESS size**, subject to the same grid constraints.
+
+**Outputs:**  
+- Detailed 24-hour time-series simulation for the identified optimal PV-BESS combination.
+
+**Optimization Objective:**  
+Same as Mode 2: traversal.
+
+**Constraints:**  
+Same as Mode 2: traversal.
 
 ---
 
@@ -337,5 +367,6 @@ University of Tennessee, Knoxville<br>
 Oak Ridge National Laboratory, USA  
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
 
 
