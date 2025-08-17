@@ -245,6 +245,8 @@ Config = SimpleNamespace(
 
 ## 4. How to Run
 
+Download `main20250812.py`, `IBRNetGridSize_DssBasicFunctions.py`, `IBRNetGridSize_DssPowerFlowFunctions.py`, `control.py`, `plotting.py`, and `plotting_sizing.py`.
+
 To run the tool, simply execute the main20250812.py file from your command line or IDE:
 
 ```bash
@@ -367,6 +369,7 @@ University of Tennessee, Knoxville<br>
 Oak Ridge National Laboratory, USA  
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
 
 
 
