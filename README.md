@@ -7,6 +7,12 @@
 
 For a complete guide on installation, configuration, and usage, please see the [Full User Guide](User_guide.md).
 
+## 🚀 Download the Latest Version
+
+The recommended way to get the IBRNet/GridSize tool is to download the latest official release. This ensures you have a stable, tested version of the code. The source code on the main branch may be under active development and is not recommended for general use.
+
+**[➡️ Download the Latest Release (v1.0.0-alpha)](https://github.com/YourUsername/YourRepositoryName/releases/latest)**
+
 ## Core Features
 
 This tool offers three primary analysis modes
@@ -25,5 +31,6 @@ This tool offers three primary analysis modes
 3.  Analyze All results, including plots and CSV files, will be saved in the output directory specified in the configuration.
 
 ## Funding
+
 
 This work was supported by the U.S. Department of Energy (DOE) under the EARNEST project.
