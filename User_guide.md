@@ -1,7 +1,7 @@
 # IBRNet/GridSize (Alpha Version) Tool User Manual
 
 **Authors:**  
-Yayu(Andy) Yang, Samuel Okhuegbe, Zhang Jian, Yilu Liu  
+Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang, Yilu Liu  
 
 **Affiliations:**  
 - University of Tennessee, Knoxville, USA  
@@ -358,7 +358,7 @@ Bredesen Center for Interdisciplinary Research and Graduate Education<br>
 Center for Ultra-Wide-Area Resilient Energy Transmission Network (CURENT)<br>
 University of Tennessee, Knoxville
 
-**Zhang Jian**<br> 
+**Jian Zhang**<br> 
 Research Associate<br>
 Department of Electrical Engineering and Computer Science  <br>
 University of Tennessee, Knoxville
@@ -369,6 +369,7 @@ University of Tennessee, Knoxville<br>
 Oak Ridge National Laboratory, USA  
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
 
 
 
