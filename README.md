@@ -5,7 +5,7 @@
 1.  **Impact Analysis**: Perform detailed time-series simulations to evaluate the impact of specific PV and BESS configurations on the distribution network's performance, such as voltage profiles and equipment loading.
 2.  **Optimal Sizing**: Determine the maximum capacity of Photovoltaic (PV) systems and the minimum required capacity of Battery Energy Storage Systems (BESS) without violating grid constraints.
 
-For a complete guide on installation, configuration, and usage, please see the [Full User Guide](User_guide.md).
+For a complete guide on installation, configuration, and usage, please see the [➡️ Full User Guide](User_guide.md).
 
 ## 🚀 Download the Latest Version
 
@@ -34,3 +34,4 @@ This tool offers three primary analysis modes
 
 
 This work was supported by the U.S. Department of Energy (DOE) under the EARNEST project.
+
