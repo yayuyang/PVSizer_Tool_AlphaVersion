@@ -11,7 +11,7 @@ For a complete guide on installation, configuration, and usage, please see the [
 
 The recommended way to get the IBRNet/GridSize tool is to download the latest official release. This ensures you have a stable, tested version of the code. The source code on the main branch may be under active development and is not recommended for general use.
 
-**[➡️ Download the Latest Release (v1.0.0-alpha)](https://github.com/YourUsername/YourRepositoryName/releases/latest)**
+**[➡️ Download the Latest Release (v1.0.0-alpha)](https://github.com/yayuyang/IBRNet_GridSize_AlphVersion_Tool/releases/tag/v1.0.0-alpha)**
 
 ## Core Features
 
@@ -34,4 +34,5 @@ This tool offers three primary analysis modes
 
 
 This work was supported by the U.S. Department of Energy (DOE) under the EARNEST project.
+
 
