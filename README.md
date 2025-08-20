@@ -1,6 +1,6 @@
-# IBRNet/GridSize: A PV & BESS Sizing and Impact Analysis Tool
+# PVSizer: A PV & BESS Sizing and Impact Analysis Tool
 
-**IBRNet/GridSize (Alpha Version)**  is an advanced simulation tool built on Python and OpenDSS. It offers a comprehensive framework to help engineers and researchers tackle two critical challenges in renewable energy integration:
+**PVSizer (Alpha Version)**  is an advanced simulation tool built on Python and OpenDSS. It offers a comprehensive framework to help engineers and researchers tackle two critical challenges in renewable energy integration:
 
 1.  **Impact Analysis**: Perform detailed time-series simulations to evaluate the impact of specific PV and BESS configurations on the distribution network's performance, such as voltage profiles and equipment loading.
 2.  **Optimal Sizing**: Determine the maximum capacity of Photovoltaic (PV) systems and the minimum required capacity of Battery Energy Storage Systems (BESS) without violating grid constraints.
@@ -9,9 +9,9 @@ For a complete guide on installation, configuration, and usage, please see the [
 
 ## 🚀 Download the Latest Version
 
-The recommended way to get the IBRNet/GridSize tool is to download the latest official release. This ensures you have a stable, tested version of the code. The source code on the main branch may be under active development and is not recommended for general use.
+The recommended way to get the PVSizer tool is to download the latest official release. This ensures you have a stable, tested version of the code. The source code on the main branch may be under active development and is not recommended for general use.
 
-**[➡️ Download the Latest Release (v1.0.0-alpha)](https://github.com/yayuyang/IBRNet_GridSize_AlphaVersion_Tool/releases)**
+**[➡️ Download the Latest Release (v1.0.0-alpha)](https://github.com/yayuyang/PVSizer_AlphaVersion_Tool/releases)**
 
 ## Core Features
 
@@ -34,6 +34,7 @@ This tool offers three primary analysis modes
 
 
 This work was supported by the U.S. Department of Energy (DOE) under the EARNEST project.
+
 
 
 
