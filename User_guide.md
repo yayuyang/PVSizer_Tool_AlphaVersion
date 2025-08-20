@@ -245,7 +245,7 @@ Config = SimpleNamespace(
 
 ## 4. How to Run
 
-Download `main20250812.py`, `IBRNetGridSize_DssBasicFunctions.py`, `IBRNetGridSize_DssPowerFlowFunctions.py`, `control.py`, `plotting.py`, and `plotting_sizing.py`.
+Download `main20250812.py`, `PVSizer_DssBasicFunctions.py`, `PVSizer_DssPowerFlowFunctions.py`, `control.py`, `plotting.py`, and `plotting_sizing.py`.
 
 To run the tool, simply execute the main20250812.py file from your command line or IDE:
 
@@ -326,8 +326,8 @@ All results, including plots and CSV data, are saved to the directory specified 
 
 **Modular Design:** The tool is separated into multiple modules, with each file serving a specific purpose:
 
-- `IBRNetGridSize_DssBasicFunctions.py`: Handles fundamental OpenDSS interactions and element creation.
-- `IBRNetGridSize_DssPowerFlowFunctions.py`: Contains advanced simulation logic, such as running time-series power flow and checking for violations.
+- `PVSizer_DssBasicFunctions.py`: Handles fundamental OpenDSS interactions and element creation.
+- `PVSizer_DssPowerFlowFunctions.py`: Contains advanced simulation logic, such as running time-series power flow and checking for violations.
 - `control.py`: Defines the battery control strategies, making it easy to add or switch new control modes.
 - `plotting.py` and `plotting_sizing.py`: Dedicated to result visualization for single runs and sizing analyses, respectively.
 
@@ -369,6 +369,7 @@ University of Tennessee, Knoxville<br>
 Oak Ridge National Laboratory, USA  
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
 
 
 
