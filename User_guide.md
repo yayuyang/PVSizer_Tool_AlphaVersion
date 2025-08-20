@@ -48,7 +48,7 @@ A global traversal analysis that systematically tests combinations of PV and BES
 
 **Outputs:**  
 - Visualization of feasible capacity configurations.  
-- Detailed failure reasons for configurations that do **not** meet constraints, including:  
+- Detailed infeasible reasons for configurations that do **not** meet constraints, including:  
   - Convergence Failure  
   - Voltage Violation  
   - Loading Violation  
@@ -304,19 +304,19 @@ All results, including plots and CSV data, are saved to the directory specified 
 **Feasibility Maps (PNG):**
 
 - **PVSizer Feasibility Domain Map:** A scatter plot showing successful (green circles) and failed (red crosses) PV/battery capacity combinations. It plots the feasibility frontier and highlights the final optimized point.
-- **PVSizer Constraint Diagnostic Map:** A more detailed scatter plot that uses different colors and markers to categorize specific failure reasons (e.g., "Voltage Violation," "Loading Violation," "Convergence Failure").
+- **PVSizer Constraint Diagnostic Map:** A more detailed scatter plot that uses different colors and markers to categorize specific infeasible reasons (e.g., "Voltage Violation," "Loading Violation," "Convergence Failure").
 
 **CSV Files:**
 
-- `sizing_results_list_*.csv`: A list of all simulation combinations, including PV/battery capacities, status, and failure reasons.
-- `sizing_results_status_code_matrix_*.csv`: A matrix where pv_kw and battery_kw are indices, and the cell value is the status code (1 for success, 0 for failure).
-- `sizing_results_reason_matrix_*.csv`: A similar matrix, with cell values containing the specific failure reason string.
+- `sizing_results_list_*.csv`: A list of all simulation combinations, including PV/battery capacities, status, and infeasible reasons.
+- `sizing_results_status_code_matrix_*.csv`: A matrix where pv_kw and battery_kw are indices, and the cell value is the status code (1 for feasible, 0 for infeasible).
+- `sizing_results_reason_matrix_*.csv`: A similar matrix, with cell values containing the specific infeasible reason string.
 
 ### 5.3 optimization Mode Results
 
 **Optimization Path Plot (PNG):**
 
-- **PVSizer Hill-Climbing Optimization Process:** Visualizes the algorithm's search path, marking successful and failed iterations and the final optimal point.
+- **PVSizer Hill-Climbing Optimization Process:** Visualizes the algorithm's search path, marking feasible and infeasible iterations and the final optimal point.
 
 **Detailed Time-Series Results:** After finding the optimal point, the program automatically runs a detailed simulation and generates the full set of `single_run` results for that optimal configuration.
 
@@ -369,6 +369,7 @@ University of Tennessee, Knoxville<br>
 Oak Ridge National Laboratory, USA  
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
 
 
 
