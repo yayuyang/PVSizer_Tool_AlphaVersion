@@ -1,4 +1,4 @@
-# IBRNet/GridSize (Alpha Version) Tool User Manual
+# PVSizer (Alpha Version) Tool User Manual
 
 **Authors:**  
 Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang, Yilu Liu  
@@ -30,7 +30,7 @@ Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang, Yilu Liu
 ---
 
 ## 1. Introduction
-**IBRNet/GridSize (Alpha Version)** is an advanced simulation and analysis tool built on OpenDSS, designed to help power system engineers and researchers analyze the impact of inverter-based resources (IBR), such as Photovoltaic systems(PV) and Battery Energy Storage System(BESS), on distribution networks. 
+**PVSizer (Alpha Version)** is an advanced simulation and analysis tool built on OpenDSS, designed to help power system engineers and researchers analyze the impact of inverter-based resources (IBR), such as Photovoltaic systems(PV) and Battery Energy Storage System(BESS), on distribution networks. 
 In this tool, OpenDSS serves as the powerful simulation engine responsible for modeling the grid and solving complex power flow calculations ⚙️. Python acts as the high-level automation and analysis layer 🧠, which controls the simulation workflows, processes the vast amount of output data, and generates insightful visualizations. 
 The tool offers three core analysis modes:
 
@@ -303,8 +303,8 @@ All results, including plots and CSV data, are saved to the directory specified 
 
 **Feasibility Maps (PNG):**
 
-- **IBRNet/GridSize Feasibility Domain Map:** A scatter plot showing successful (green circles) and failed (red crosses) PV/battery capacity combinations. It plots the feasibility frontier and highlights the final optimized point.
-- **IBRNet/GridSize Constraint Diagnostic Map:** A more detailed scatter plot that uses different colors and markers to categorize specific failure reasons (e.g., "Voltage Violation," "Loading Violation," "Convergence Failure").
+- **PVSizer Feasibility Domain Map:** A scatter plot showing successful (green circles) and failed (red crosses) PV/battery capacity combinations. It plots the feasibility frontier and highlights the final optimized point.
+- **PVSizer Constraint Diagnostic Map:** A more detailed scatter plot that uses different colors and markers to categorize specific failure reasons (e.g., "Voltage Violation," "Loading Violation," "Convergence Failure").
 
 **CSV Files:**
 
@@ -316,7 +316,7 @@ All results, including plots and CSV data, are saved to the directory specified 
 
 **Optimization Path Plot (PNG):**
 
-- **IBRNet/GridSize Hill-Climbing Optimization Process:** Visualizes the algorithm's search path, marking successful and failed iterations and the final optimal point.
+- **PVSizer Hill-Climbing Optimization Process:** Visualizes the algorithm's search path, marking successful and failed iterations and the final optimal point.
 
 **Detailed Time-Series Results:** After finding the optimal point, the program automatically runs a detailed simulation and generates the full set of `single_run` results for that optimal configuration.
 
@@ -369,6 +369,7 @@ University of Tennessee, Knoxville<br>
 Oak Ridge National Laboratory, USA  
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
 
 
 
