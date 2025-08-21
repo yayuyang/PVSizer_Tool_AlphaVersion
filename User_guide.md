@@ -157,9 +157,13 @@ Config = SimpleNamespace(
         dss_master_file = r'...\code\Loadfiles\IEEE13test.dss',        
         # Path to the load shape file, which defines the load variation over a 24-hour period for time-series analysis.
         load_shape_profile = r"...\code\Loadfiles\load_curve.txt",        
-        # Path to the PV generation profile, defining solar power output over a 24-hour period.
-        # Note: If PV output is too small (e.g., 0.1 p.u.), the system may fail to start. 
-        # Therefore, non-zero values in the PV txt file should exceed the minimum per-unit power required.
+        # --- pv_shape_profile's meaning and related settings ---
+        # 1. Identity: While the shape of this curve is determined by a solar irradiance profile, the values in this file are treated
+        #    directly as the PV system's output power as a percentage of its rated active power. This is its accurate identity within this code.
+        #    For example, a value of 0.5 means the PV output is 50% of its rated power.
+        # 2. PV Inverter Thresholds: To ensure the simulation accurately follows this profile, especially at very low output values,
+        #    the PV inverter's cut-in (%cutin) and cut-out (%cutout) power thresholds are explicitly set to 0.1% elsewhere in the code.
+        #    This overrides any OpenDSS defaults and allows the inverter to start up and remain active even at very low power outputs.
         pv_shape_profile = r"...\code\Loadfiles\PV_curve.txt",        
         # Path for a predefined storage dispatch profile.
         # Note: This feature is not active in the current version; refrain from making any changes.
@@ -369,6 +373,7 @@ University of Tennessee, Knoxville<br>
 Oak Ridge National Laboratory, USA  
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
 
 
 
