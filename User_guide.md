@@ -31,20 +31,20 @@ Yilu Liu, Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang
 - [PVSizer (Alpha Version) Tool User Manual](#pvsizer-alpha-version-tool-user-manual)
   - [Table of Contents](#table-of-contents)
   - [1. Introduction](#1-introduction)
-    - [1.1 Modular 1: single\_run](#11-modular-1-single_run)
-    - [1.2 Modular 2: traversal](#12-modular-2-traversal)
-    - [1.3 Modular 3: optimization](#13-modular-3-optimization)
+    - [1.1 Module 1: single\_run](#11-module-1-single_run)
+    - [1.2 Module 2: traversal](#12-module-2-traversal)
+    - [1.3 Module 3: optimization](#13-module-3-optimization)
   - [2. Installation and Dependencies](#2-installation-and-dependencies)
     - [2.1 System Requirements](#21-system-requirements)
     - [2.2 Library Installation](#22-library-installation)
   - [3. Tool Configuration (main20250812.py)](#3-tool-configuration-main20250812py)
-    - [3.1 UserSettings: Modular Selection and General Parameters](#31-usersettings-modular-selection-and-general-parameters)
+    - [3.1 UserSettings: Module Selection and General Parameters](#31-usersettings-module-selection-and-general-parameters)
     - [3.2 Config: File Paths and Detailed Settings](#32-config-file-paths-and-detailed-settings)
   - [4. How to Run](#4-how-to-run)
   - [5. Result Analysis](#5-result-analysis)
-    - [5.1 single\_run Modular Results](#51-single_run-modular-results)
-    - [5.2 traversal Modular Results](#52-traversal-modular-results)
-    - [5.3 optimization Modular Results](#53-optimization-modular-results)
+    - [5.1 single\_run Module Results](#51-single_run-module-results)
+    - [5.2 traversal Module Results](#52-traversal-module-results)
+    - [5.3 optimization Module Results](#53-optimization-module-results)
   - [6. Code Architecture and Future Outlook](#6-code-architecture-and-future-outlook)
   - [7. Project Funding](#7-project-funding)
   - [8. Author information](#8-author-information)
@@ -54,9 +54,9 @@ Yilu Liu, Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang
 ## 1. Introduction
 **PVSizer (Alpha Version)** is a design tool built on Python and OpenDSS, designed to help power system engineers and researchers analyze the impact of inverter-based resources (IBR), such as Photovoltaic systems(PV) and Battery Energy Storage System(BESS), on distribution networks. 
 In this tool, OpenDSS serves as the powerful simulation engine responsible for modeling the grid and solving complex power flow calculations ⚙️. Python acts as the high-level automation and analysis layer 🧠, which controls the simulation workflows, processes the vast amount of output data, and generates insightful visualizations. 
-The tool offers three core analysis modulars:
+The tool offers three core analysis modules:
 
-### 1.1 Modular 1: single_run
+### 1.1 Module 1: single_run
 **Purpose:**  
 Performs a detailed 24-hour simulation to evaluate the impact of IBRs on distribution networks for a single, user-defined PV and BESS configuration.
 
@@ -64,7 +64,7 @@ Performs a detailed 24-hour simulation to evaluate the impact of IBRs on distrib
 - Comprehensive charts and data for analysis.  
 - Automatic export of all simulation data to a CSV file.
 
-### 1.2 Modular 2: traversal
+### 1.2 Module 2: traversal
 **Purpose:**  
 A global traversal analysis that systematically tests combinations of PV and BESS capacities to generate a "feasibility region map", visually identifying configurations that satisfy grid constraints.
 
@@ -89,7 +89,7 @@ For a given combination of PV and BESS capacity to be considered successful, the
   - **Battery Capacity Constraints:**  1) Rated active power of the battery cannot exceed the rated active power of the PV；2) If the battery remains above its minimum SOC after discharging overnight, its capacity is considered unrealistic.
 
 
-### 1.3 Modular 3: optimization
+### 1.3 Module 3: optimization
 **Purpose:**  
 Uses a **hill-climbing algorithm** to efficiently search for the optimal configuration that **maximizes PV size** while **minimizing BESS size**, subject to the same grid constraints.
 
@@ -97,10 +97,10 @@ Uses a **hill-climbing algorithm** to efficiently search for the optimal configu
 - Detailed 24-hour time-series simulation for the identified optimal PV-BESS combination.
 
 **Optimization Objective:**  
-Same as Modular 2: traversal.
+Same as Module 2: traversal.
 
 **Constraints:**  
-Same as Modular 2: traversal.
+Same as Module 2: traversal.
 
 ---
 
@@ -112,7 +112,7 @@ Same as Modular 2: traversal.
 - `numpy`: Library for numerical operations.
 - `pandas`: Library for data manipulation and result export.
 - `matplotlib`: Library for plotting and data visualization.
-- `multiprocessing`: Library for parallel processing, used in the traversal modular.
+- `multiprocessing`: Library for parallel processing, used in the traversal module.
 
 ### 2.2 Library Installation
 You can also install `opendssdirect` using pip: https://pypi.org/project/opendssdirect.py/
@@ -125,13 +125,13 @@ The API documentation is here: https://dss-extensions.org/OpenDSSDirect.py/opend
 
 All configurable parameters are located in the main20250812.py file, within the UserSettings and Config classes.
 
-### 3.1 UserSettings: Modular Selection and General Parameters
+### 3.1 UserSettings: Module Selection and General Parameters
 
-This class controls the operational modular and high-level parameters for the analysis.
+This class controls the operational module and high-level parameters for the analysis.
 
 ```python
 class UserSettings:
-    # 1.1 --- Operating Modular Selection ---
+    # 1.1 --- Operating Module Selection ---
     # Options: 'traversal', 'optimization', 'single_run'
     # 'single_run':   single case detailed simulation with fixed PV and battery sizes
     # 'traversal':    Global traversal analysis (Map Drawer)
@@ -143,17 +143,17 @@ class UserSettings:
     chosen_battery_strategy = strategy_self_consumption_present_pv_load    # Multiple battery control strategies are available. See control.py for details.  
     inverter_sizing_factor = 1.7                     # Ratio of storage inverter's apparent power (kVA) to battery's rated active power (kW).
 
-    # 1.3 --- Single-run Modular Parameters (effective only when run_mode = 'single_run') ---
+    # 1.3 --- Single-run Module Parameters (effective only when run_mode = 'single_run') ---
     single_run_pv_kw = 3000.0                      # Specified PV rated active power for a single simulation run.
     single_run_batt_kw = 2000.0                    # Specified battery rated active power for a single simulation run.
 
-    # 1.4 --- Traversal Modular Parameters (effective only when run_mode = 'traversal') ---
+    # 1.4 --- Traversal Module Parameters (effective only when run_mode = 'traversal') ---
     # np.arange(start, stop, step) defines the range. 'stop' is not included in the range.
     traversal_pv_kw_range = np.arange(0, 10001, 2000)      # Range of PV rated active power to traverse (kW).
     traversal_battery_kw_range = np.arange(100, 10001, 1000) # Range of battery rated active power to traverse (kW).
     # Note: The minimum value of the battery's rated active power range should not be too small or equal to 0, minium should above 100kW. As a very low rated active power may cause numerical instability or convergence failures in the power flow solver.
 
-    # 1.5 --- Optimization Modular Parameters (effective only when run_mode = 'optimization') ---
+    # 1.5 --- Optimization Module Parameters (effective only when run_mode = 'optimization') ---
     optimization_initial_pv_kw = 200.0             # Starting PV rated active power for the optimization search.
     # Note: initial_pv_kw should >or= initial_batt_kw
     optimization_initial_batt_kw = 100.0           # Starting battery rated active power for the optimization search.
@@ -162,14 +162,14 @@ class UserSettings:
     optimization_max_pv_kw = 10000.0               # Maximum allowed PV rated active power.
     optimization_max_batt_kw = 10000.0             # Maximum allowed battery rated active power.
 ```
-**Note:** For the 'traversal' and 'optimization' modulars, you can use the open-source tool [PVWatts Calculator](https://pvwatts.nrel.gov) to estimate the energy production of grid-connected photovoltaic (PV) energy systems worldwide.  
+**Note:** For the 'traversal' and 'optimization' modules, you can use the open-source tool [PVWatts Calculator](https://pvwatts.nrel.gov) to estimate the energy production of grid-connected photovoltaic (PV) energy systems worldwide.  
 > Using this tool, it is straightforward to estimate the average active power for each month.  
 > From the PV power curve, you can determine the upper limit of the PV rated active power.  
 > The recommended upper limit for the BESS rated active power is 50%–100% of the PV rated active power upper limit. For simplicity, directly take 100% 
 
 ### 3.2 Config: File Paths and Detailed Settings
 
-This configuration defines the operational modular, file paths, and high-level parameters required for the analysis of the power system. It centralizes all key settings, including input data locations, time-series simulation parameters, PV and storage system definitions, and grid constraints. By organizing these parameters in a single Config object, the code becomes more modular, readable, and easier to maintain or modify for different simulation scenarios.
+This configuration defines the operational module, file paths, and high-level parameters required for the analysis of the power system. It centralizes all key settings, including input data locations, time-series simulation parameters, PV and storage system definitions, and grid constraints. By organizing these parameters in a single Config object, the code becomes more modular, readable, and easier to maintain or modify for different simulation scenarios.
 
 ```python
 Config = SimpleNamespace(
@@ -196,7 +196,7 @@ Config = SimpleNamespace(
 
     # 2.2 --- Time Series Simulation Settings ---
     time_series = SimpleNamespace(
-        mode = 'Daily',  # Sets the simulation modular. 'Daily' runs a 24-hour time-series analysis.
+        mode = 'Daily',  # Sets the simulation module. 'Daily' runs a 24-hour time-series analysis.
         number = 96,     # 24 hours * (60min / 15min_interval) = 96 steps.
         stepsize = '15m',# Defines the time interval for each simulation step (e.g., '15m' for 15 minutes).
         load_loadshape_name = 'FileBasedLoadProfile',       # The internal name used within OpenDSS to identify the load shape profile.
@@ -286,7 +286,7 @@ The program will automatically perform the analysis based on the run_mode set in
 
 All results, including plots and CSV data, are saved to the directory specified in `Config.files.output_path`.
 
-### 5.1 single_run Modular Results
+### 5.1 single_run Module Results
 
 **Detailed Time-Series Plots (PNG):** Ten figures provide a comprehensive comparison between the "Original Case" (without DER) and the "With DER Case" (where PV and BESS are connected at the tie-in points):
 
@@ -325,7 +325,7 @@ All results, including plots and CSV data, are saved to the directory specified 
 
 - `results_*.csv`: Contains all the raw data used to generate the plots, enabling further custom analysis.
 
-### 5.2 traversal Modular Results
+### 5.2 traversal Module Results
 
 **Feasibility Maps (PNG):**
 
@@ -338,7 +338,7 @@ All results, including plots and CSV data, are saved to the directory specified 
 - `sizing_results_status_code_matrix_*.csv`: A matrix where pv_kw and battery_kw are indices, and the cell value is the status code (1 for feasible, 0 for infeasible).
 - `sizing_results_reason_matrix_*.csv`: A similar matrix, with cell values containing the specific infeasible reason string.
 
-### 5.3 optimization Modular Results
+### 5.3 optimization Module Results
 
 **Optimization Path Plot (PNG):**
 
@@ -350,7 +350,7 @@ All results, including plots and CSV data, are saved to the directory specified 
 
 ## 6. Code Architecture and Future Outlook
 
-**Modular Design:** The tool is separated into multiple modules, with each file serving a specific purpose:
+**Module Design:** The tool is separated into multiple modules, with each file serving a specific purpose:
 
 - `PVSizer_DssBasicFunctions.py`: Handles fundamental OpenDSS interactions and element creation.
 - `PVSizer_DssPowerFlowFunctions.py`: Contains advanced simulation logic, such as running time-series power flow and checking for violations.
