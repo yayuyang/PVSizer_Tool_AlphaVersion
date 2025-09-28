@@ -1,28 +1,50 @@
 # PVSizer (Alpha Version) Tool User Manual
 
 **Authors:**  
-Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang, Yilu Liu  
+Yilu Liu, Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang  
 
 **Affiliations:**  
 - University of Tennessee, Knoxville, USA  
 - Oak Ridge National Laboratory, USA
 
+<table border="0">
+  <tr>
+    <td align="center">
+      <img src="./logo/UTK.jpg" alt="Image 1" width="150">
+    </td>
+    <td align="center">
+      <img src="./logo/CURENT.png" alt="Image 2" width="150">
+    </td>
+    <td align="center">
+      <img src="./logo/ORNL.png" alt="Image 3" width="150">
+    </td>
+    <td align="center">
+      <img src="./logo/DOE.png" alt="Image 4" width="150">
+    </td>
+    <td align="center">
+      <img src="./logo/EARNEST.png" alt="Image 5" width="150">
+    </td>
+  </tr>
+</table>
+
 ## Table of Contents
+- [PVSizer (Alpha Version) Tool User Manual](#pvsizer-alpha-version-tool-user-manual)
+  - [Table of Contents](#table-of-contents)
   - [1. Introduction](#1-introduction)
-    - [1.1 Mode 1: single\_run](#11-mode-1-single_run)
-    - [1.2 Mode 2: traversal](#12-mode-2-traversal)
-    - [1.3 Mode 3: optimization](#13-mode-3-optimization)
+    - [1.1 Modular 1: single\_run](#11-modular-1-single_run)
+    - [1.2 Modular 2: traversal](#12-modular-2-traversal)
+    - [1.3 Modular 3: optimization](#13-modular-3-optimization)
   - [2. Installation and Dependencies](#2-installation-and-dependencies)
     - [2.1 System Requirements](#21-system-requirements)
     - [2.2 Library Installation](#22-library-installation)
   - [3. Tool Configuration (main20250812.py)](#3-tool-configuration-main20250812py)
-    - [3.1 UserSettings: Mode Selection and General Parameters](#31-usersettings-mode-selection-and-general-parameters)
+    - [3.1 UserSettings: Modular Selection and General Parameters](#31-usersettings-modular-selection-and-general-parameters)
     - [3.2 Config: File Paths and Detailed Settings](#32-config-file-paths-and-detailed-settings)
   - [4. How to Run](#4-how-to-run)
   - [5. Result Analysis](#5-result-analysis)
-    - [5.1 single\_run Mode Results](#51-single_run-mode-results)
-    - [5.2 traversal Mode Results](#52-traversal-mode-results)
-    - [5.3 optimization Mode Results](#53-optimization-mode-results)
+    - [5.1 single\_run Modular Results](#51-single_run-modular-results)
+    - [5.2 traversal Modular Results](#52-traversal-modular-results)
+    - [5.3 optimization Modular Results](#53-optimization-modular-results)
   - [6. Code Architecture and Future Outlook](#6-code-architecture-and-future-outlook)
   - [7. Project Funding](#7-project-funding)
   - [8. Author information](#8-author-information)
@@ -30,11 +52,11 @@ Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang, Yilu Liu
 ---
 
 ## 1. Introduction
-**PVSizer (Alpha Version)** is an advanced simulation and analysis tool built on OpenDSS, designed to help power system engineers and researchers analyze the impact of inverter-based resources (IBR), such as Photovoltaic systems(PV) and Battery Energy Storage System(BESS), on distribution networks. 
+**PVSizer (Alpha Version)** is a design tool built on Python and OpenDSS, designed to help power system engineers and researchers analyze the impact of inverter-based resources (IBR), such as Photovoltaic systems(PV) and Battery Energy Storage System(BESS), on distribution networks. 
 In this tool, OpenDSS serves as the powerful simulation engine responsible for modeling the grid and solving complex power flow calculations ⚙️. Python acts as the high-level automation and analysis layer 🧠, which controls the simulation workflows, processes the vast amount of output data, and generates insightful visualizations. 
-The tool offers three core analysis modes:
+The tool offers three core analysis modulars:
 
-### 1.1 Mode 1: single_run
+### 1.1 Modular 1: single_run
 **Purpose:**  
 Performs a detailed 24-hour simulation to evaluate the impact of IBRs on distribution networks for a single, user-defined PV and BESS configuration.
 
@@ -42,7 +64,7 @@ Performs a detailed 24-hour simulation to evaluate the impact of IBRs on distrib
 - Comprehensive charts and data for analysis.  
 - Automatic export of all simulation data to a CSV file.
 
-### 1.2 Mode 2: traversal
+### 1.2 Modular 2: traversal
 **Purpose:**  
 A global traversal analysis that systematically tests combinations of PV and BESS capacities to generate a "feasibility region map", visually identifying configurations that satisfy grid constraints.
 
@@ -67,7 +89,7 @@ For a given combination of PV and BESS capacity to be considered successful, the
   - **Battery Capacity Constraints:**  1) Rated active power of the battery cannot exceed the rated active power of the PV；2) If the battery remains above its minimum SOC after discharging overnight, its capacity is considered unrealistic.
 
 
-### 1.3 Mode 3: optimization
+### 1.3 Modular 3: optimization
 **Purpose:**  
 Uses a **hill-climbing algorithm** to efficiently search for the optimal configuration that **maximizes PV size** while **minimizing BESS size**, subject to the same grid constraints.
 
@@ -75,10 +97,10 @@ Uses a **hill-climbing algorithm** to efficiently search for the optimal configu
 - Detailed 24-hour time-series simulation for the identified optimal PV-BESS combination.
 
 **Optimization Objective:**  
-Same as Mode 2: traversal.
+Same as Modular 2: traversal.
 
 **Constraints:**  
-Same as Mode 2: traversal.
+Same as Modular 2: traversal.
 
 ---
 
@@ -90,7 +112,7 @@ Same as Mode 2: traversal.
 - `numpy`: Library for numerical operations.
 - `pandas`: Library for data manipulation and result export.
 - `matplotlib`: Library for plotting and data visualization.
-- `multiprocessing`: Library for parallel processing, used in the traversal mode.
+- `multiprocessing`: Library for parallel processing, used in the traversal modular.
 
 ### 2.2 Library Installation
 You can also install `opendssdirect` using pip: https://pypi.org/project/opendssdirect.py/
@@ -103,13 +125,13 @@ The API documentation is here: https://dss-extensions.org/OpenDSSDirect.py/opend
 
 All configurable parameters are located in the main20250812.py file, within the UserSettings and Config classes.
 
-### 3.1 UserSettings: Mode Selection and General Parameters
+### 3.1 UserSettings: Modular Selection and General Parameters
 
-This class controls the operational mode and high-level parameters for the analysis.
+This class controls the operational modular and high-level parameters for the analysis.
 
 ```python
 class UserSettings:
-    # 1.1 --- Operating Mode Selection ---
+    # 1.1 --- Operating Modular Selection ---
     # Options: 'traversal', 'optimization', 'single_run'
     # 'single_run':   single case detailed simulation with fixed PV and battery sizes
     # 'traversal':    Global traversal analysis (Map Drawer)
@@ -121,17 +143,17 @@ class UserSettings:
     chosen_battery_strategy = strategy_self_consumption_present_pv_load    # Multiple battery control strategies are available. See control.py for details.  
     inverter_sizing_factor = 1.7                     # Ratio of storage inverter's apparent power (kVA) to battery's rated active power (kW).
 
-    # 1.3 --- Single-run Mode Parameters (effective only when run_mode = 'single_run') ---
+    # 1.3 --- Single-run Modular Parameters (effective only when run_mode = 'single_run') ---
     single_run_pv_kw = 3000.0                      # Specified PV rated active power for a single simulation run.
     single_run_batt_kw = 2000.0                    # Specified battery rated active power for a single simulation run.
 
-    # 1.4 --- Traversal Mode Parameters (effective only when run_mode = 'traversal') ---
+    # 1.4 --- Traversal Modular Parameters (effective only when run_mode = 'traversal') ---
     # np.arange(start, stop, step) defines the range. 'stop' is not included in the range.
     traversal_pv_kw_range = np.arange(0, 10001, 2000)      # Range of PV rated active power to traverse (kW).
     traversal_battery_kw_range = np.arange(100, 10001, 1000) # Range of battery rated active power to traverse (kW).
     # Note: The minimum value of the battery's rated active power range should not be too small or equal to 0, minium should above 100kW. As a very low rated active power may cause numerical instability or convergence failures in the power flow solver.
 
-    # 1.5 --- Optimization Mode Parameters (effective only when run_mode = 'optimization') ---
+    # 1.5 --- Optimization Modular Parameters (effective only when run_mode = 'optimization') ---
     optimization_initial_pv_kw = 200.0             # Starting PV rated active power for the optimization search.
     # Note: initial_pv_kw should >or= initial_batt_kw
     optimization_initial_batt_kw = 100.0           # Starting battery rated active power for the optimization search.
@@ -140,14 +162,14 @@ class UserSettings:
     optimization_max_pv_kw = 10000.0               # Maximum allowed PV rated active power.
     optimization_max_batt_kw = 10000.0             # Maximum allowed battery rated active power.
 ```
-**Note:** For the 'traversal' and 'optimization' modes, you can use the open-source tool [PVWatts Calculator](https://pvwatts.nrel.gov) to estimate the energy production of grid-connected photovoltaic (PV) energy systems worldwide.  
+**Note:** For the 'traversal' and 'optimization' modulars, you can use the open-source tool [PVWatts Calculator](https://pvwatts.nrel.gov) to estimate the energy production of grid-connected photovoltaic (PV) energy systems worldwide.  
 > Using this tool, it is straightforward to estimate the average active power for each month.  
 > From the PV power curve, you can determine the upper limit of the PV rated active power.  
 > The recommended upper limit for the BESS rated active power is 50%–100% of the PV rated active power upper limit. For simplicity, directly take 100% 
 
 ### 3.2 Config: File Paths and Detailed Settings
 
-This configuration defines the operational mode, file paths, and high-level parameters required for the analysis of the power system. It centralizes all key settings, including input data locations, time-series simulation parameters, PV and storage system definitions, and grid constraints. By organizing these parameters in a single Config object, the code becomes more modular, readable, and easier to maintain or modify for different simulation scenarios.
+This configuration defines the operational modular, file paths, and high-level parameters required for the analysis of the power system. It centralizes all key settings, including input data locations, time-series simulation parameters, PV and storage system definitions, and grid constraints. By organizing these parameters in a single Config object, the code becomes more modular, readable, and easier to maintain or modify for different simulation scenarios.
 
 ```python
 Config = SimpleNamespace(
@@ -157,13 +179,13 @@ Config = SimpleNamespace(
         dss_master_file = r'...\code\Loadfiles\IEEE13test.dss',        
         # Path to the load shape file, which defines the load variation over a 24-hour period for time-series analysis.
         load_shape_profile = r"...\code\Loadfiles\load_curve.txt",        
-        # --- pv_shape_profile's meaning and related settings ---
-        # 1. Identity: While the shape of this curve is determined by a solar irradiance profile, the values in this file are treated
-        #    directly as the PV system's output power as a percentage of its rated active power. This is its accurate identity within this code.
-        #    For example, a value of 0.5 means the PV output is 50% of its rated power.
-        # 2. PV Inverter Thresholds: To ensure the simulation accurately follows this profile, especially at very low output values,
-        #    the PV inverter's cut-in (%cutin) and cut-out (%cutout) power thresholds are explicitly set to 0.1% elsewhere in the code.
-        #    This overrides any OpenDSS defaults and allows the inverter to start up and remain active even at very low power outputs.
+        # # --- pv_shape_profile's meaning and related settings ---
+        # # 1. Identity: While the shape of this curve is determined by a solar irradiance profile, the values in this file are treated
+        # #    directly as the PV system's output power as a percentage of its rated active power. This is its accurate identity within this code.
+        # #    For example, a value of 0.5 means the PV output is 50% of its rated power.
+        # # 2. PV Inverter Thresholds: To ensure the simulation accurately follows this profile, especially at very low output values,
+        # #    the PV inverter's cut-in (%cutin) and cut-out (%cutout) power thresholds are explicitly set to 0.1% elsewhere in the code.
+        # #    This overrides any OpenDSS defaults and allows the inverter to start up and remain active even at very low power outputs
         pv_shape_profile = r"...\code\Loadfiles\PV_curve.txt",        
         # Path for a predefined storage dispatch profile.
         # Note: This feature is not active in the current version; refrain from making any changes.
@@ -174,7 +196,7 @@ Config = SimpleNamespace(
 
     # 2.2 --- Time Series Simulation Settings ---
     time_series = SimpleNamespace(
-        mode = 'Daily',  # Sets the simulation mode. 'Daily' runs a 24-hour time-series analysis.
+        mode = 'Daily',  # Sets the simulation modular. 'Daily' runs a 24-hour time-series analysis.
         number = 96,     # 24 hours * (60min / 15min_interval) = 96 steps.
         stepsize = '15m',# Defines the time interval for each simulation step (e.g., '15m' for 15 minutes).
         load_loadshape_name = 'FileBasedLoadProfile',       # The internal name used within OpenDSS to identify the load shape profile.
@@ -264,7 +286,7 @@ The program will automatically perform the analysis based on the run_mode set in
 
 All results, including plots and CSV data, are saved to the directory specified in `Config.files.output_path`.
 
-### 5.1 single_run Mode Results
+### 5.1 single_run Modular Results
 
 **Detailed Time-Series Plots (PNG):** Ten figures provide a comprehensive comparison between the "Original Case" (without DER) and the "With DER Case" (where PV and BESS are connected at the tie-in points):
 
@@ -303,7 +325,7 @@ All results, including plots and CSV data, are saved to the directory specified 
 
 - `results_*.csv`: Contains all the raw data used to generate the plots, enabling further custom analysis.
 
-### 5.2 traversal Mode Results
+### 5.2 traversal Modular Results
 
 **Feasibility Maps (PNG):**
 
@@ -316,7 +338,7 @@ All results, including plots and CSV data, are saved to the directory specified 
 - `sizing_results_status_code_matrix_*.csv`: A matrix where pv_kw and battery_kw are indices, and the cell value is the status code (1 for feasible, 0 for infeasible).
 - `sizing_results_reason_matrix_*.csv`: A similar matrix, with cell values containing the specific infeasible reason string.
 
-### 5.3 optimization Mode Results
+### 5.3 optimization Modular Results
 
 **Optimization Path Plot (PNG):**
 
@@ -341,13 +363,23 @@ All results, including plots and CSV data, are saved to the directory specified 
 
 ## 7. Project Funding
 
-This work was supported by the **U.S. Department of Energy (DOE)** under the project:**An Equitable, Affordable & Resilient Nationwide Energy System Transition (EARNEST)**  
+This work was supported in part by the **U.S. Department of Energy (DOE)** under the project:**An Equitable, Affordable & Resilient Nationwide Energy System Transition (EARNEST)**  
 
-**Collaborating Institutions and Organizations**: **Stanford University**, Argonne National Lab (ANL), Pacific Northwest National Laboratory (PNNL), Lawrence Livermore National Laboratory (LLNL), Iowa State University, Massachusetts Institute of Technology, North Carolina Agriculture and Technical State University, Princeton University, Tec de Monterrey (Mexico), University of Alaska Fairbanks, University of Calgary (Canada), University of California San Diego, University of Hawaii at Manoa, University of Michigan, University of Tennessee, University of Texas, University of Waterloo (Canada), Electric Power Research Institute, NRECA, and Northwest Indian College. 
+**Collaborating Institutions and Organizations**: **Stanford University**, Argonne National Lab (ANL), Pacific Northwest National Laboratory (PNNL), Lawrence Livermore National Laboratory (LLNL), Electric Power Research Institute, NRECA, Iowa State University, Massachusetts Institute of Technology, North Carolina Agriculture and Technical State University, Northwest Indian College, Princeton University, Tec de Monterrey (Mexico), University of Alaska Fairbanks, University of Calgary (Canada), University of California San Diego, University of Hawaii at Manoa, University of Michigan, University of Tennessee, University of Texas, University of Waterloo (Canada), and Washington State University. 
+
+<p align="center">
+  <img src="./logo/Participants.jpg" alt="Participants Logo" width="650">
+</p>
+
 
 ---
 
 ## 8. Author information
+
+**Yilu Liu**<br>
+IEEE Life Fellow, Governor’s Chair<br>
+University of Tennessee, Knoxville<br>
+Oak Ridge National Laboratory, USA  
 
 **Yayu (Andy) Yang**<br>
 Postdoctoral Researcher/Research Specialist<br>
@@ -367,19 +399,4 @@ Research Associate<br>
 Department of Electrical Engineering and Computer Science  <br>
 University of Tennessee, Knoxville
 
-**Yilu Liu**<br>
-IEEE Life Fellow, Governor’s Chair<br>
-University of Tennessee, Knoxville<br>
-Oak Ridge National Laboratory, USA  
-
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
-
-
-
-
-
-
-
-
-
-
