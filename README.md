@@ -15,7 +15,7 @@ The recommended way to get the PVSizer tool is to download the latest official r
 
 ## Core Features
 
-This tool offers three primary analysis modulars
+This tool offers three primary analysis modules
 
 -  **single_run** Performs a detailed 24-hour simulation to evaluate the impact of IBRs on distribution networks for a single, user-defined PV and BESS configuration.
 -  **traversal** Conducts a global traversal analysis to map the feasible operating regions for different PV and BESS capacities.
