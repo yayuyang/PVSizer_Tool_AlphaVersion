@@ -363,7 +363,7 @@ All results, including plots and CSV data, are saved to the directory specified 
 
 ## 7. Project Funding
 
-This work was supported in part by the **U.S. Department of Energy (DOE)** under the project:**An Equitable, Affordable & Resilient Nationwide Energy System Transition (EARNEST)**  
+This work was supported by the **U.S. Department of Energy (DOE)** under the project:**An Equitable, Affordable & Resilient Nationwide Energy System Transition (EARNEST)**  
 
 **Collaborating Institutions and Organizations**: **Stanford University**, Argonne National Lab (ANL), Pacific Northwest National Laboratory (PNNL), Lawrence Livermore National Laboratory (LLNL), Electric Power Research Institute, NRECA, Iowa State University, Massachusetts Institute of Technology, North Carolina Agriculture and Technical State University, Northwest Indian College, Princeton University, Tec de Monterrey (Mexico), University of Alaska Fairbanks, University of Calgary (Canada), University of California San Diego, University of Hawaii at Manoa, University of Michigan, University of Tennessee, University of Texas, University of Waterloo (Canada), and Washington State University. 
 
@@ -400,3 +400,4 @@ Department of Electrical Engineering and Computer Science  <br>
 University of Tennessee, Knoxville
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
+
