@@ -11,7 +11,7 @@ For a complete guide on installation, configuration, and usage, please see the [
 
 The recommended way to get the PVSizer tool is to download the latest official release. This ensures you have a stable, tested version of the code. The source code on the main branch may be under active development and is not recommended for general use.
 
-**[➡️ Download the Latest Release (v1.0.1-alpha)](https://github.com/yayuyang/PVSizer_Tool_AlphaVersion/releases)**
+**[➡️ Download the Latest Release (v2.0.0)](https://github.com/yayuyang/PVSizer_Tool_AlphaVersion/releases)**
 
 ## Core Features
 
@@ -56,6 +56,7 @@ Yilu Liu, Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang
     </td>
   </tr>
 </table>
+
 
 
 
