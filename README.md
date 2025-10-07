@@ -36,7 +36,7 @@ This tool offers three primary analysis modules
 This work was supported by the U.S. Department of Energy (DOE) under the EARNEST project.
 
 ## Authors 
-Yilu Liu, Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang  
+Yilu Liu, Yayu(Andy) Yang, Jian Zhang, Samuel Okhuegbe  
 
 <table border="0">
   <tr>
@@ -57,6 +57,7 @@ Yilu Liu, Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang
     </td>
   </tr>
 </table>
+
 
 
 
