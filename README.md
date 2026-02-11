@@ -9,9 +9,9 @@ For a complete guide on installation, configuration, and usage, please see the [
 
 ## 🚀 Download the Latest Version
 
-The recommended way to get the PVSizer tool is to download the latest official release. This ensures you have a stable, tested version of the code. The source code on the main branch may be under active development and is not recommended for general use.
+The recommended way to get the PVSizer tool is to download the latest official release. This ensures you have a stable, tested version of the code. The source code on the main branch may be under active development and is not recommended for general use. 
 
-**[➡️ Download the Latest Release (v2.0.0)](https://github.com/yayuyang/PVSizer_Tool_AlphaVersion/releases)**
+**[➡️ Download the Stable Release (v1.0.1)](https://github.com/yayuyang/PVSizer_Tool_AlphaVersion/releases)** Other versions are under testing.
 
 ## Core Features
 
@@ -36,7 +36,7 @@ This tool offers three primary analysis modules
 This work was supported by the U.S. Department of Energy (DOE) under the EARNEST project.
 
 ## Authors 
-Yilu Liu, Yayu(Andy) Yang, Jian Zhang, Samuel Okhuegbe  
+Yayu(Andy) Yang, Jian Zhang, Samuel Okhuegbe, Yilu Liu
 
 <table border="0">
   <tr>
@@ -57,6 +57,7 @@ Yilu Liu, Yayu(Andy) Yang, Jian Zhang, Samuel Okhuegbe
     </td>
   </tr>
 </table>
+
 
 
 
