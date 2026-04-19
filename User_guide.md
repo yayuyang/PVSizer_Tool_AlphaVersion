@@ -91,7 +91,7 @@ For a given combination of PV and BESS capacity to be considered successful, the
 
 ### 1.3 Module 3: optimization
 **Purpose:**  
-Uses a **hill-climbing algorithm** to efficiently search for the optimal configuration that **maximizes PV size** while **minimizing BESS size**, subject to the same grid constraints.
+Uses a **Constraint-Guided Incremental Search (CGIS) algorithm** to efficiently search for the optimal configuration that **maximizes PV size** while **minimizing BESS size**, subject to the same grid constraints.
 
 **Outputs:**  
 - Detailed 24-hour time-series simulation for the identified optimal PV-BESS combination.
@@ -135,7 +135,7 @@ class UserSettings:
     # Options: 'traversal', 'optimization', 'single_run'
     # 'single_run':   single case detailed simulation with fixed PV and battery sizes
     # 'traversal':    Global traversal analysis (Map Drawer)
-    # 'optimization': Hill-climbing optimization (Climber)    
+    # 'optimization': Constraint-Guided Incremental Search(CGIS) optimization    
     run_mode = 'single_run'
 
     # 1.2 --- Global Component Parameters ---
@@ -342,7 +342,7 @@ All results, including plots and CSV data, are saved to the directory specified 
 
 **Optimization Path Plot (PNG):**
 
-- **PVSizer Hill-Climbing Optimization Process:** Visualizes the algorithm's search path, marking feasible and infeasible iterations and the final optimal point.
+- **PVSizer Constraint-Guided Incremental Search (CGIS) Optimization Process:** Visualizes the algorithm's search path, marking feasible and infeasible iterations and the final optimal point.
 
 **Detailed Time-Series Results:** After finding the optimal point, the program automatically runs a detailed simulation and generates the full set of `single_run` results for that optimal configuration.
 
@@ -400,4 +400,3 @@ Department of Electrical Engineering and Computer Science  <br>
 University of Tennessee, Knoxville
 
 [Power Information Technology Laboratory](https://powerit.utk.edu/index.html)
-
