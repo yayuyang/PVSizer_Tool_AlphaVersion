@@ -9,9 +9,9 @@ For a complete guide on installation, configuration, and usage, please see the [
 
 ## 🚀 Download the Latest Version
 
-The recommended way to get the PVSizer tool is to download the latest official release. This ensures you have a stable, tested version of the code. The source code on the main branch may be under active development and is not recommended for general use. 
+The recommended way to get the PVSizer tool is to download the latest official release. This ensures you have a stable, tested version of the code. The source code on the main branch may be under active development and is not recommended for general use.
 
-**[➡️ Download the Stable Release (v1.0.1)](https://github.com/yayuyang/PVSizer_Tool_AlphaVersion/releases)** 
+**[➡️ Download the Latest Release (v1.1.0-alpha)](https://github.com/yayuyang/PVSizer_Tool_AlphaVersion/releases)**
 
 ## Core Features
 
@@ -19,15 +19,14 @@ This tool offers three primary analysis modules
 
 -  **single_run** Performs a detailed 24-hour simulation to evaluate the impact of IBRs on distribution networks for a single, user-defined PV and BESS configuration.
 -  **traversal** Conducts a global traversal analysis to map the feasible operating regions for different PV and BESS capacities.
--  **optimization** Utilizes a hill-climbing algorithm to efficiently find the optimal PV and BESS sizes that meet all grid constraints.
--  **violation solution** Resolves voltage and loading violations by upgrading lines or adjusting components.
+-  **optimization** Utilizes a Constraint-Guided Incremental Search (CGIS) algorithm to efficiently find the optimal PV and BESS sizes that meet all grid constraints.
 
 ## How to Run
 
-1.  Configure Open `main_gui.py` and set your desired `run_mode` and other parameters in the `UserSettings` and `Config` classes.
+1.  Configure Open `main20250812.py` and set your desired `run_mode` and other parameters in the `UserSettings` and `Config` classes.
 2.  Execute Run the main script from your terminal
     ```bash
-    python main_gui.py
+    python main20250812.py
     ```
 3.  Analyze All results, including plots and CSV files, will be saved in the output directory specified in the configuration.
 
@@ -36,7 +35,7 @@ This tool offers three primary analysis modules
 This work was supported by the U.S. Department of Energy (DOE) under the EARNEST project.
 
 ## Authors 
-Yayu(Andy) Yang, Jian Zhang, Samuel Okhuegbe, Yilu Liu
+Yilu Liu, Yayu(Andy) Yang, Samuel Okhuegbe, Jian Zhang  
 
 <table border="0">
   <tr>
@@ -57,11 +56,3 @@ Yayu(Andy) Yang, Jian Zhang, Samuel Okhuegbe, Yilu Liu
     </td>
   </tr>
 </table>
-
-
-
-
-
-
-
-
